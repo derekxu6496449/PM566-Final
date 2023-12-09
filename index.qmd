@@ -1,0 +1,91 @@
+---
+title: "PM566-Final Project"
+---
+
+```{r,echo=FALSE,message=FALSE}
+
+library(DT)
+library(plotly)
+library(dplyr)
+data <- read.csv("/Users/derekxu/Desktop/PM566/Midterm/smoking.csv")
+# change all the N/A values to be 0 since for people who do not smoke there is no cigarette smoked per day on weekdays or weekends
+data <- data %>%
+  mutate(
+    amt_weekdays = ifelse(smoke == "No", 0, amt_weekdays),
+    amt_weekends = ifelse(smoke == "No", 0, amt_weekends)
+  )
+smoke_count <- table(data$smoke)
+percentages <- round((smoke_count / sum(smoke_count)) * 100, 1)
+data$gross_income <- factor(data$gross_income, levels = c("Under 2,600", "2,600 to 5,200", "5,200 to 10,400", "10,400 to 15,600", "15,600 to 20,800", "20,800 to 28,600", "28,600 to 36,400", "Above 36,400", "Refused", "Unknown"))
+data_smoke <- data[data$smoke == "Yes",]
+data_smoke$amt <- (data_smoke$amt_weekdays*5 + data_smoke$amt_weekends*2) / 7
+```
+## Description
+The dataset we used in this project are compiled from the responses given by over 1,500 people to a survey and published by stats4schools (https://www.stem.org.uk/resources/elibrary/resource/28452/large-datasets-stats4schools). \
+According to the website, this dataset was published during 2000 to 2009, with no specific time. So the dataset should be collected no later than 2009, which is a relatively old dataset. This dataset was collected in terms of questionnaires where paticipants were given certain questions with preset types of responses. \
+
+I will use this dataset to investigate the following two questions: \ 
+
+1. What are the main factors that influence whether a person smokes or not? \ 
+2. For those who smoke, what are the main factors that influence the number of cigarettes smoke per day? \
+
+Only interactive figures or tables will be shown on the home page. To get the actual report, please click "Download the report" on the top right corner.
+
+## Original Dataset
+#### Here is the original dataset after data cleaning and wrangling. You can use the search bar and the horizontal scroll bar to access the infermation you want. Click on the variable names to sort the dataset by a certain variable. \
+
+
+
+```{r,echo=FALSE,message=FALSE}
+datatable(data, 
+          filter = 'top', 
+          options = list(pageLength = 10, autoWidth = TRUE,scrollX = TRUE),
+          caption = htmltools::tags$caption(
+              style = 'caption-side: top; text-align: left; color: black; font-size: 20px;',
+              'The Original Dataset'
+          ),
+          rownames = FALSE)
+```
+## Boxplot
+#### Here is the boxplot of age grouped by smoking status. You can move the pointer on the plot to get relative values such as max, min and quantiles, etc. \
+
+
+
+```{r,echo=FALSE,message=FALSE}
+p2 <- ggplot(data, aes(x=smoke, y=age, fill=smoke)) + 
+  geom_boxplot() +
+  labs(title="Age Distribution by Smoking Status", x = "Smoking Status") +
+  theme(legend.position = "none")
+ggplotly(p2)
+```
+## Scatter plot
+#### Here a scatter plot of cigarettes cousmption vs. age. Move the pointer on the plot to see exact amount of cigarette and age, as well as the correlation for each gender. \
+
+
+
+
+```{r,echo=FALSE,message=FALSE,warning=FALSE}
+data_smoke$cor <- 0
+data_smoke <- data_smoke %>% 
+  mutate(cor = ifelse(gender == "Male", 0.24055137, 0.06156497)) 
+  
+p <- data_smoke %>%
+  plot_ly(x = ~age, y = ~amt,
+          type = 'scatter',mode = 'markers',color = ~gender,
+          hoverinfo = 'text',
+          text = ~paste(paste(gender,":",sep=""),
+                        paste("Age:", age, sep=""),
+                        paste("Amount:", amt, sep=""),
+                        paste("Correlation:",cor,sep=""),
+                        sep = "<br>"))
+p <- p %>% layout(title = "Scatter Plot of Smoking Amount vs Age by Gender",
+       xaxis = list(title = 'Age'),
+       yaxis = list(title='Numbers of cigarettes smoked per day'))
+
+p
+
+```
+
+
+
+

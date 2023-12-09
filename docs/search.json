@@ -1,0 +1,51 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "PM566-Final Project",
+    "section": "",
+    "text": "The dataset we used in this project are compiled from the responses given by over 1,500 people to a survey and published by stats4schools (https://www.stem.org.uk/resources/elibrary/resource/28452/large-datasets-stats4schools).\nAccording to the website, this dataset was published during 2000 to 2009, with no specific time. So the dataset should be collected no later than 2009, which is a relatively old dataset. This dataset was collected in terms of questionnaires where paticipants were given certain questions with preset types of responses.\n\nI will use this dataset to investigate the following two questions:  \n\nWhat are the main factors that influence whether a person smokes or not?  \nFor those who smoke, what are the main factors that influence the number of cigarettes smoke per day?\n\n\nOnly interactive figures or tables will be shown on the home page. To get the actual report, please click “Download the report” on the top right corner."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "index.html#description",
+    "href": "index.html#description",
+    "title": "PM566-Final Project",
+    "section": "",
+    "text": "The dataset we used in this project are compiled from the responses given by over 1,500 people to a survey and published by stats4schools (https://www.stem.org.uk/resources/elibrary/resource/28452/large-datasets-stats4schools).\nAccording to the website, this dataset was published during 2000 to 2009, with no specific time. So the dataset should be collected no later than 2009, which is a relatively old dataset. This dataset was collected in terms of questionnaires where paticipants were given certain questions with preset types of responses.\n\nI will use this dataset to investigate the following two questions:  \n\nWhat are the main factors that influence whether a person smokes or not?  \nFor those who smoke, what are the main factors that influence the number of cigarettes smoke per day?\n\n\nOnly interactive figures or tables will be shown on the home page. To get the actual report, please click “Download the report” on the top right corner."
+  },
+  {
+    "objectID": "index.html#here-is-my-original-dataset",
+    "href": "index.html#here-is-my-original-dataset",
+    "title": "PM566-Final Project",
+    "section": "Here is my original dataset:",
+    "text": "Here is my original dataset:"
+  },
+  {
+    "objectID": "index.html#original-dataset",
+    "href": "index.html#original-dataset",
+    "title": "PM566-Final Project",
+    "section": "Original Dataset",
+    "text": "Original Dataset\n\nHere is the original dataset after data cleaning and wrangling. You can use the search bar and the horizontal scroll bar to access the infermation you want. Click on the variable names to sort the dataset by a certain variable."
+  },
+  {
+    "objectID": "index.html#boxplot",
+    "href": "index.html#boxplot",
+    "title": "PM566-Final Project",
+    "section": "Boxplot",
+    "text": "Boxplot\n\nHere is the boxplot of age grouped by smoking status. You can move the pointer on the plot to get relative values such as max, min and quantiles, etc."
+  },
+  {
+    "objectID": "index.html#scatter-plot",
+    "href": "index.html#scatter-plot",
+    "title": "PM566-Final Project",
+    "section": "Scatter plot",
+    "text": "Scatter plot\n\nHere a scatter plot of cigarettes cousmption vs. age. Move the pointer on the plot to see exact amount of cigarette and age, as well as the correlation for each gender."
+  }
+]
